@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container">
-		<marquee behavior="alternative" direction="left"><h5><b>AB UTNAL, Email:</b>utnal.ab@gmail.com</h5></marquee>
+		<marquee behavior="alternative" direction="left"><h5><b>AB UTNAL, Email:</b> utnal.ab@gmail.com</h5></marquee>
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
 					<div id="message"></div>
@@ -23,19 +23,30 @@
 					<div class="panel-body">
 						<div class="row">
 							<form action="<?= base_url('admin/create')?>" method="POST" id="insertForm" enctype="multipart/form-data">
-								<div class="col-md-12"><input type="text" value="" name="name" placeholder="Name" id=""class="form-control  is-invalid">
-									<div id="error-name"></div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="text" value="" name="name" placeholder="Name" id="input-name"class="form-control  is-invalid">
+										<div class="error"></div>
+									</div>
 								</div>
-								<div class="col-md-12"><input type="text" value="" name="phone" placeholder="phone" id=""class="form-control">
-									<div id="error-phone"></div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="text" value="" name="phone" placeholder="phone" id="input-phone"class="form-control">
+										<div class="error"></div>
+									</div>
 								</div>
-								<div class="col-md-12"><input type="text" value="<?= set_value('email')?>"name="email" placeholder="Email" id=""class="form-control">
-									<div id="error-email"></div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="text" value="" name="email" placeholder="Email" id="input-email" class="form-control">
+										<div class="error"></div>
+									</div>
 								</div>
-								<div class="col-md-12"><div class="form-group">
-									<input type="file" value="" name="photo" placeholder="" id="" class="form-control">
-									<div id="error-photo"></div>
-								</div></div>
+								<div class="col-md-12">
+									<div class="form-group">
+									<input type="file" value="" name="photo" placeholder="" id="input-photo" class="form-control">
+									<div class="error"></div>
+									</div>
+								</div>
 								<div class="col-md-12"><input type="submit" name="submit"  id="" class="btn btn-primary pull-right"></div>
 							</form>
 						</div>

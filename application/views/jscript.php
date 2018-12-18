@@ -35,6 +35,7 @@ $(document).ready(function(){
 			event.preventDefault();
 			$('#insert_form').show();
 			$('#update_form').hide();
+			$('#error').hide();
 		})
 });
 
@@ -70,6 +71,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 		$(document).on('submit','#insertForm', function(event){
 		event.preventDefault();
+
 		$form = $(this);
 			$.ajax({
 				url: $form.attr('action'),
@@ -85,14 +87,22 @@ $(document).ready(function(){
 						if(key=='status'){
 							$('#message').html(value);
 							$('#insertForm')[0].reset();
+							$('.error').hide();
 						}
-						$('#error-' + key).html(value);
+						$('#input-' + key).parents('.form-group').find('.error').html(value);
 					});
 					
 				}
-			});
+		});
+
+		$('#insertForm input').on('keyup', function () { 
+        $(this).parents('.form-group').find('.error').html(" ");
+   		 });
+		
 		});
 });
+
+
 
 // Delete mehtod
 $(document).ready(function(){
@@ -110,6 +120,8 @@ $(document).ready(function(){
 				show();
 				$.each(response, function(key, value){
 					$('#message').html(value);
+					$('#insert_form').show();
+					$('#update_form').hide();
 				});
 			}
 		});
